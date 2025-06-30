@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head><title>Titanic Predictor</title></head>
+<head>
+    <title>Titanic Survival Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        input[type="text"], input[type="submit"] {
+            margin: 8px 0;
+            padding: 8px;
+            width: 300px;
+        }
+        input[type="submit"] {
+            width: 150px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
 <body>
     <h2>Enter Passenger Details</h2>
-    <form action="/predict" method="POST">
-        <input type="text" name="Pclass" placeholder="Class"><br>
-        <input type="text" name="Age" placeholder="Age"><br>
-        <input type="text" name="Fare" placeholder="Fare"><br>
-        <input type="text" name="FamilySize" placeholder="Family Size"><br>
+    <form action="/predict" method="post">
+        <input type="text" name="Pclass" placeholder="Passenger Class (1 = 1st, 2 = 2nd, 3 = 3rd)" required><br>
+        <input type="text" name="Age" placeholder="Age (e.g. 25)" required><br>
+        <input type="text" name="Fare" placeholder="Fare in dollars (e.g. 72.50)" required><br>
+        <input type="text" name="FamilySize" placeholder="Family Size (e.g. 3)" required><br>
         <input type="submit" value="Predict">
     </form>
+
     {% if prediction_text %}
         <h3>Prediction: {{ prediction_text }}</h3>
     {% endif %}
