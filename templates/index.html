@@ -7,8 +7,8 @@
             font-family: Arial, sans-serif;
             padding: 40px;
         }
-        input[type="text"], input[type="submit"] {
-            margin: 8px 0;
+        select, input[type="text"], input[type="submit"] {
+            margin: 10px 0;
             padding: 8px;
             width: 300px;
         }
@@ -24,10 +24,32 @@
 <body>
     <h2>Enter Passenger Details</h2>
     <form action="/predict" method="post">
-        <input type="text" name="Pclass" placeholder="Passenger Class (1 = 1st, 2 = 2nd, 3 = 3rd)" required><br>
+        <label>Passenger Class:</label><br>
+        <select name="Pclass" required>
+            <option value="">Select Class</option>
+            <option value="1">1st Class</option>
+            <option value="2">2nd Class</option>
+            <option value="3">3rd Class</option>
+        </select><br>
+
+        <label>Sex:</label><br>
+        <select name="Sex_male" required>
+            <option value="">Select Sex</option>
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+        </select><br>
+
+        <label>Embarked:</label><br>
+        <select name="Embarked_Q" required>
+            <option value="">Select Embarkation</option>
+            <option value="1">Queenstown (Q)</option>
+            <option value="0">Other (C or S)</option>
+        </select><br>
+
         <input type="text" name="Age" placeholder="Age (e.g. 25)" required><br>
         <input type="text" name="Fare" placeholder="Fare in dollars (e.g. 72.50)" required><br>
         <input type="text" name="FamilySize" placeholder="Family Size (e.g. 3)" required><br>
+        
         <input type="submit" value="Predict">
     </form>
 
