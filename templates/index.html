@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Titanic Survival Predictor</title>
+    <title>Heart Disease Predictor</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             padding: 40px;
         }
-        select, input[type="text"], input[type="submit"] {
+        input[type="number"], input[type="submit"] {
             margin: 10px 0;
             padding: 8px;
             width: 300px;
@@ -22,34 +22,12 @@
     </style>
 </head>
 <body>
-    <h2>Enter Passenger Details</h2>
+    <h2>Heart Disease Prediction</h2>
     <form action="/predict" method="post">
-        <label>Passenger Class:</label><br>
-        <select name="Pclass" required>
-            <option value="">Select Class</option>
-            <option value="1">1st Class</option>
-            <option value="2">2nd Class</option>
-            <option value="3">3rd Class</option>
-        </select><br>
-
-        <label>Sex:</label><br>
-        <select name="Sex_male" required>
-            <option value="">Select Sex</option>
-            <option value="1">Male</option>
-            <option value="0">Female</option>
-        </select><br>
-
-        <label>Embarked:</label><br>
-        <select name="Embarked_Q" required>
-            <option value="">Select Embarkation</option>
-            <option value="1">Queenstown (Q)</option>
-            <option value="0">Other (C or S)</option>
-        </select><br>
-
-        <input type="text" name="Age" placeholder="Age (e.g. 25)" required><br>
-        <input type="text" name="Fare" placeholder="Fare in dollars (e.g. 72.50)" required><br>
-        <input type="text" name="FamilySize" placeholder="Family Size (e.g. 3)" required><br>
-        
+        {% for i in range(14) %}
+            <label>Feature {{ i+1 }}:</label><br>
+            <input type="number" step="any" name="{{ i }}" required><br>
+        {% endfor %}
         <input type="submit" value="Predict">
     </form>
 
